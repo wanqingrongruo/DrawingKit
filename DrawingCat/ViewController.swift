@@ -14,20 +14,58 @@ class ViewController: UIViewController {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var seg01: UISegmentedControl!
-    @IBOutlet weak var seg02: UISegmentedControl!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var layout: UICollectionViewFlowLayout!
     private let image = UIImage(named: "2.jpg")!
 
-    var tools = DrawingState.initial
     var drawingView: DrawingView?
     var currentToolState: DrawingToolState = .pen(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xff453a), size: 0.23))
+    lazy var dataSource: [(String, DrawingToolState)] = {
+        var array = [(String, DrawingToolState)]()
+        let tools: [DrawingToolState] = [
+            .eraser(DrawingToolState.EraserState(size: 0.5)),
+            .pen(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xff453a), size: 0.23)),
+            .arrow(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xff8a00), size: 0.23)),
+            .pen(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xff453a), size: 0.23, images: [UIImage(named: "pencil")])),
+            .marker(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xffd60a), size: 0.2)),
+            .dash(DrawingToolState.BrushState(color: DrawingColor(color: .white), size: 0.2)),
+            .marker(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xffd60a), size: 0.2, images: [UIImage(named: "dash")], dashSize: 0.5)),
+            .chartlet(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xffd60a), size: 0.3)),
+            .neon(DrawingToolState.BrushState(color: DrawingColor(rgb: 0x34c759), size: 0.4)),
+            .rainbow(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xffd60a), size: 0.2)),
+            .rainbow(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xffd60a), size: 0.2, images: [UIImage(named: "rainbow02")])),
+            .rainbow(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xffd60a), size: 0.2, images: [UIImage(named: "rainbow03")])),
+            .chartlet(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xffd60a), size: 0.2, images: [UIImage(named: "brush01"), UIImage(named: "brush02"), UIImage(named: "brush03"), UIImage(named: "brush04")], dashSize: 0)),
+            .blur(DrawingToolState.EraserState(size: 0.5))
+        ]
+        let titles: [String] =  [
+            "eraser",
+            "pen",
+            "arrow",
+            "pencil",
+            "marker",
+            "dash",
+            "dash_circle",
+            "chartlet",
+            "neon",
+            "rainbow1",
+            "rainbow2",
+            "rainbow3",
+            "more chartlet",
+            "blur"
+        ]
+
+        for (index, title) in titles.enumerated() {
+            let tool = tools[index]
+            array.append((title, tool))
+        }
+
+        return array
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tools = tools.appendTool(.marker(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xffd60a), size: 0.2, images: [UIImage(named: "dash")], dashSize: 0.5)))
-        tools = tools.appendTool(.chartlet(DrawingToolState.BrushState(color: DrawingColor(rgb: 0xffd60a), size: 0.2, images: [UIImage(named: "brush01"), UIImage(named: "brush02"), UIImage(named: "brush03"), UIImage(named: "brush04")], dashSize: 0)))
-        tools = tools.appendTool(.dash(DrawingToolState.BrushState(color: DrawingColor(color: .white), size: 0.2)))
 
         imageview.image = image
 
@@ -37,6 +75,10 @@ class ViewController: UIViewController {
         let origin = CGPoint(x: (UIScreen.main.bounds.width - size.width)/2, y: (UIScreen.main.bounds.height - size.height)/2-50)
         heightConstraint.constant = size.height
         widthConstraint.constant = size.width
+
+        if dataSource.count > 1 {
+            currentToolState = dataSource[1].1
+        }
 
         drawingView.frame = CGRect(origin: origin, size: size)
         view.addSubview(drawingView)
@@ -72,31 +114,20 @@ class ViewController: UIViewController {
 
         }
 
+        self.drawingView = drawingView
 
+        let nib = UINib(nibName: "PenCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "PenCell")
+        collectionView.dataSource = self
+        collectionView.delegate = self
+
+        updateSliderValue()
+        drawingView.updateToolState(currentToolState)
+    }
+
+    func updateSliderValue() {
         if let size = currentToolState.size {
             slider.value = Float(size * 100)
-        }
-        self.drawingView = drawingView
-        seg02.selectedSegmentIndex = seg02.numberOfSegments - 1
-    }
-
-    @IBAction func changeSegmentControl(_ sender: UISegmentedControl) {
-        let state: DrawingToolState? = tools.toolState(for: sender.selectedSegmentIndex)
-        if let state = state {
-            currentToolState = state
-            DispatchQueue.main.async {
-                self.drawingView?.updateToolState(state)
-            }
-        }
-    }
-
-    @IBAction func changeSegmentControl02(_ sender: UISegmentedControl) {
-        let state: DrawingToolState? = tools.toolState(for: sender.selectedSegmentIndex + 8)
-        if let state = state {
-            currentToolState = state
-            DispatchQueue.main.async {
-                self.drawingView?.updateToolState(state)
-            }
         }
     }
 
@@ -126,3 +157,40 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    public func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView.frame.size == .zero {
+            return CGSize.zero
+        }
+
+        let height = 50
+        return CGSize(width: height, height: height)
+    }
+}
+
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    public func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
+        return dataSource.count
+    }
+
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PenCell", for: indexPath) as! PenCell
+        let item = dataSource[indexPath.item]
+        cell.titleLabel.text = item.0
+        cell.hasSelected = item.1 == currentToolState
+        return cell
+    }
+
+    public func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = dataSource[indexPath.item]
+        let state: DrawingToolState = item.1
+        currentToolState = state
+        drawingView?.updateToolState(state)
+        updateSliderValue()
+        collectionView.reloadData()
+    }
+}

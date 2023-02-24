@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E044680B29A8A7F0007A9DEE /* rainbow01.png in Resources */ = {isa = PBXBuildFile; fileRef = E044680629A8A7F0007A9DEE /* rainbow01.png */; };
+		E044680C29A8A7F0007A9DEE /* rainbow02.png in Resources */ = {isa = PBXBuildFile; fileRef = E044680929A8A7F0007A9DEE /* rainbow02.png */; };
+		E044680D29A8A7F0007A9DEE /* rainbow03.png in Resources */ = {isa = PBXBuildFile; fileRef = E044680A29A8A7F0007A9DEE /* rainbow03.png */; };
+		E044680F29A8A7FF007A9DEE /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = E044680E29A8A7FF007A9DEE /* pencil.png */; };
+		E044681229A8AAF4007A9DEE /* PenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E044681029A8AAF4007A9DEE /* PenCell.swift */; };
+		E044681329A8AAF4007A9DEE /* PenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E044681129A8AAF4007A9DEE /* PenCell.xib */; };
 		E06260BA29A373E100E1FA88 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E06260B729A373E100E1FA88 /* 2.jpg */; };
 		E06260C329A477D700E1FA88 /* brush01.png in Resources */ = {isa = PBXBuildFile; fileRef = E06260BF29A477D700E1FA88 /* brush01.png */; };
 		E06260C429A477D700E1FA88 /* brush04.png in Resources */ = {isa = PBXBuildFile; fileRef = E06260C029A477D700E1FA88 /* brush04.png */; };
@@ -48,6 +54,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E044680629A8A7F0007A9DEE /* rainbow01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rainbow01.png; sourceTree = "<group>"; };
+		E044680929A8A7F0007A9DEE /* rainbow02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rainbow02.png; sourceTree = "<group>"; };
+		E044680A29A8A7F0007A9DEE /* rainbow03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rainbow03.png; sourceTree = "<group>"; };
+		E044680E29A8A7FF007A9DEE /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
+		E044681029A8AAF4007A9DEE /* PenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenCell.swift; sourceTree = "<group>"; };
+		E044681129A8AAF4007A9DEE /* PenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PenCell.xib; sourceTree = "<group>"; };
 		E06260B729A373E100E1FA88 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		E06260BF29A477D700E1FA88 /* brush01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brush01.png; sourceTree = "<group>"; };
 		E06260C029A477D700E1FA88 /* brush04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brush04.png; sourceTree = "<group>"; };
@@ -122,7 +134,13 @@
 				E06260C029A477D700E1FA88 /* brush04.png */,
 				E09B4451299111F10007E6A8 /* AppDelegate.swift */,
 				E09B4455299111F10007E6A8 /* ViewController.swift */,
+				E044680629A8A7F0007A9DEE /* rainbow01.png */,
+				E044680E29A8A7FF007A9DEE /* pencil.png */,
+				E044680929A8A7F0007A9DEE /* rainbow02.png */,
+				E044680A29A8A7F0007A9DEE /* rainbow03.png */,
 				E09B4457299111F10007E6A8 /* Main.storyboard */,
+				E044681029A8AAF4007A9DEE /* PenCell.swift */,
+				E044681129A8AAF4007A9DEE /* PenCell.xib */,
 				E09B445A299111F30007E6A8 /* Assets.xcassets */,
 				E09B445C299111F30007E6A8 /* LaunchScreen.storyboard */,
 				E09B445F299111F30007E6A8 /* Info.plist */,
@@ -207,13 +225,18 @@
 			files = (
 				E09B445E299111F30007E6A8 /* LaunchScreen.storyboard in Resources */,
 				E06260D529A47C7800E1FA88 /* dash.png in Resources */,
+				E044681329A8AAF4007A9DEE /* PenCell.xib in Resources */,
 				E09B445B299111F30007E6A8 /* Assets.xcassets in Resources */,
 				E06260BA29A373E100E1FA88 /* 2.jpg in Resources */,
 				E06260C329A477D700E1FA88 /* brush01.png in Resources */,
+				E044680B29A8A7F0007A9DEE /* rainbow01.png in Resources */,
 				E09B4459299111F10007E6A8 /* Main.storyboard in Resources */,
 				E06260C629A477D700E1FA88 /* brush03.png in Resources */,
+				E044680F29A8A7FF007A9DEE /* pencil.png in Resources */,
+				E044680C29A8A7F0007A9DEE /* rainbow02.png in Resources */,
 				E06260C429A477D700E1FA88 /* brush04.png in Resources */,
 				E06260C529A477D700E1FA88 /* brush02.png in Resources */,
+				E044680D29A8A7F0007A9DEE /* rainbow03.png in Resources */,
 				E09B44672991DB8D0007E6A8 /* pic.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E044681229A8AAF4007A9DEE /* PenCell.swift in Sources */,
 				E09B4456299111F10007E6A8 /* ViewController.swift in Sources */,
 				E09B4452299111F10007E6A8 /* AppDelegate.swift in Sources */,
 			);

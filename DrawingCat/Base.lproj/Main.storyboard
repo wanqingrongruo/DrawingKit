@@ -25,7 +25,7 @@
                                 </constraints>
                             </imageView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="23" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="FgW-Dk-lrL">
-                                <rect key="frame" x="48" y="795" width="297" height="31"/>
+                                <rect key="frame" x="48" y="782" width="297" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="LtA-06-JPd"/>
                                 </constraints>
@@ -33,59 +33,39 @@
                                     <action selector="onSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="aWE-yK-4zp"/>
                                 </connections>
                             </slider>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="dGH-Ob-zb7">
-                                <rect key="frame" x="10" y="744.66666666666663" width="373" height="31"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SeB-Mv-Mdy">
+                                <rect key="frame" x="20" y="692" width="353" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="XbM-UE-TGF"/>
+                                    <constraint firstAttribute="height" constant="50" id="t7F-vL-etP"/>
                                 </constraints>
-                                <segments>
-                                    <segment title="dash"/>
-                                    <segment title="mch"/>
-                                    <segment title="dh"/>
-                                    <segment title="nil"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeSegmentControl02:" destination="BYZ-38-t0r" eventType="valueChanged" id="YGT-6e-BFX"/>
-                                </connections>
-                            </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3T2-lZ-gCD">
-                                <rect key="frame" x="10" y="693.66666666666663" width="373" height="32"/>
-                                <segments>
-                                    <segment title="pe"/>
-                                    <segment title="arr"/>
-                                    <segment title="mk"/>
-                                    <segment title="ch"/>
-                                    <segment title="ne"/>
-                                    <segment title="rb"/>
-                                    <segment title="bl"/>
-                                    <segment title="er"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeSegmentControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="iNc-16-vwA"/>
-                                </connections>
-                            </segmentedControl>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ccv-mm-o4x">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="FgW-Dk-lrL" firstAttribute="firstBaseline" secondItem="dGH-Ob-zb7" secondAttribute="baseline" constant="30" id="88h-gy-UZj"/>
-                            <constraint firstItem="3T2-lZ-gCD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="AjQ-yg-zXx"/>
-                            <constraint firstItem="dGH-Ob-zb7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Bwo-ni-cTh"/>
-                            <constraint firstItem="dGH-Ob-zb7" firstAttribute="top" secondItem="3T2-lZ-gCD" secondAttribute="bottom" constant="20" id="EOT-MX-swY"/>
                             <constraint firstItem="1ge-0P-Kh4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="IxI-Zv-lar"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dGH-Ob-zb7" secondAttribute="trailing" constant="10" id="Tas-il-oAE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3T2-lZ-gCD" secondAttribute="trailing" constant="10" id="YaS-eJ-2pk"/>
+                            <constraint firstItem="FgW-Dk-lrL" firstAttribute="firstBaseline" secondItem="SeB-Mv-Mdy" secondAttribute="baseline" constant="40" id="PnQ-tH-ATe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SeB-Mv-Mdy" secondAttribute="trailing" constant="20" id="fUy-aw-9Fh"/>
                             <constraint firstItem="1ge-0P-Kh4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hbn-pF-mCN"/>
-                            <constraint firstAttribute="bottom" secondItem="FgW-Dk-lrL" secondAttribute="bottom" constant="27" id="hf8-nW-cf3"/>
+                            <constraint firstAttribute="bottom" secondItem="FgW-Dk-lrL" secondAttribute="bottom" constant="40" id="hf8-nW-cf3"/>
                             <constraint firstItem="FgW-Dk-lrL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="jef-AF-7Mz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FgW-Dk-lrL" secondAttribute="trailing" constant="50" id="nkk-Ou-5qM"/>
+                            <constraint firstItem="SeB-Mv-Mdy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yOu-tg-PuS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="SeB-Mv-Mdy" id="LSZ-3Y-FYu"/>
                         <outlet property="heightConstraint" destination="NxT-Th-agv" id="nNf-57-Fb0"/>
                         <outlet property="imageview" destination="1ge-0P-Kh4" id="DSe-3F-ixW"/>
-                        <outlet property="seg01" destination="3T2-lZ-gCD" id="5hg-zP-70S"/>
-                        <outlet property="seg02" destination="dGH-Ob-zb7" id="QDl-hu-hMG"/>
+                        <outlet property="layout" destination="ccv-mm-o4x" id="03i-O4-pCo"/>
                         <outlet property="slider" destination="FgW-Dk-lrL" id="LUE-x9-NY2"/>
                         <outlet property="widthConstraint" destination="o7H-y0-v24" id="vmc-zZ-Y9Z"/>
                     </connections>
