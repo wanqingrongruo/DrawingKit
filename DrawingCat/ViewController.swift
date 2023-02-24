@@ -34,8 +34,7 @@ class ViewController: UIViewController {
         let size = caculateImageSize()
         let drawingView = DrawingView(size: image.size)
 
-        let origin = CGPoint(x: (UIScreen.main.bounds.width - size.width)/2, y: (UIScreen.main.bounds.height - size.height)/2)
-//        imageview.frame = CGRect(origin: origin, size: size)
+        let origin = CGPoint(x: (UIScreen.main.bounds.width - size.width)/2, y: (UIScreen.main.bounds.height - size.height)/2-50)
         heightConstraint.constant = size.height
         widthConstraint.constant = size.width
 
