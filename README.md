@@ -13,3 +13,8 @@ draw on canvas with some different pens
 ![rainbow2](https://github.com/wanqingrongruo/DrawingKit/blob/main/preview/IMG_4899.png)
 ![rainbow3](https://github.com/wanqingrongruo/DrawingKit/blob/main/preview/IMG_4900.png)
 ![dash](https://github.com/wanqingrongruo/DrawingKit/blob/main/preview/IMG_4923.png)
+
+## Reference
+
+[Telegram-DrawingUI](https://github.com/TelegramMessenger/Telegram-iOS/tree/master/submodules/DrawingUI)
+[Maliang](https://github.com/Harley-xk/MaLiang)
