@@ -60,29 +60,20 @@ final class DrawingMetalView: MTKView {
 
     init?(size: CGSize, sources: [UIImage?], style: Style = .marker, dashSize: CGFloat? = nil, offset: CGFloat = 0, renderStyle: Int = 0) {
         let mainBundle = Bundle(for: DrawingView.self)
-        guard let path = mainBundle.path(forResource: "DrawingKitBundle", ofType: "bundle") else {
-            return nil
-        }
-        guard let bundle = Bundle(path: path) else {
-            return nil
-        }
         guard let device = MTLCreateSystemDefaultDevice() else {
             return nil
         }
-        guard let libraryFile = bundle.path(forResource: "default", ofType: "metallib") else {
-            return nil
-        }
-        guard let defaultLibrary = try? device.makeLibrary(filepath: libraryFile) else {
+
+        guard let defaultLibrary = try? device.makeDefaultLibrary(bundle: mainBundle) else {
             return nil
         }
 
         self.library = defaultLibrary
-
         guard let commandQueue = device.makeCommandQueue() else {
             return nil
         }
-        self.commandQueue = commandQueue
 
+        self.commandQueue = commandQueue
         self.size = size
         self.sources = sources
         self.dashSize = dashSize
