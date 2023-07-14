@@ -27,6 +27,7 @@ Pod::Spec.new do |spec|
   spec.description  = <<-DESC
                      A Kit can draw on canvas with some different pens.
                      We support pen, Neon, rainbow, arrow, erase, dash, marker, and other.
+                     DESC
 
   spec.homepage     = "https://github.com/wanqingrongruo/DrawingKit"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -39,7 +40,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = "MIT"
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -65,7 +66,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.platform     = :ios
-  spec.platform     = :ios, 11.0"
+  spec.platform     = :ios, "11.0"
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -118,10 +119,13 @@ Pod::Spec.new do |spec|
   #
 
   # spec.framework  = "SomeFramework"
-  spec.frameworks = "SomeFramework", "AnotherFramework"
+  # spec.frameworks = "SomeFramework", "AnotherFramework"
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
+
+  # 指定 Swift 语言版本，Swift 项目需要设置这个
+  s.swift_version = '5.0'
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
