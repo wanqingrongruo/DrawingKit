@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ge-0P-Kh4">
-                                <rect key="frame" x="-3.6666666666666572" y="76" width="400.33333333333326" height="600"/>
+                                <rect key="frame" x="-3.6666666666666572" y="79" width="400.33333333333326" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="600" id="NxT-Th-agv"/>
                                     <constraint firstAttribute="width" constant="400" id="o7H-y0-v24"/>
@@ -51,8 +51,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1ge-0P-Kh4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="IxI-Zv-lar"/>
                             <constraint firstItem="FgW-Dk-lrL" firstAttribute="firstBaseline" secondItem="SeB-Mv-Mdy" secondAttribute="baseline" constant="40" id="PnQ-tH-ATe"/>
+                            <constraint firstItem="1ge-0P-Kh4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="fDx-MB-jTJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SeB-Mv-Mdy" secondAttribute="trailing" constant="20" id="fUy-aw-9Fh"/>
                             <constraint firstItem="1ge-0P-Kh4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hbn-pF-mCN"/>
                             <constraint firstAttribute="bottom" secondItem="FgW-Dk-lrL" secondAttribute="bottom" constant="40" id="hf8-nW-cf3"/>

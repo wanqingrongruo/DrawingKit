@@ -72,7 +72,6 @@ class ViewController: UIViewController {
         let size = caculateImageSize()
         let drawingView = DrawingView(size: image.size)
 
-        let origin = CGPoint(x: (UIScreen.main.bounds.width - size.width)/2, y: (UIScreen.main.bounds.height - size.height)/2-50)
         heightConstraint.constant = size.height
         widthConstraint.constant = size.width
 
@@ -80,6 +79,7 @@ class ViewController: UIViewController {
             currentToolState = dataSource[1].1
         }
 
+        let origin = CGPoint(x: imageview.frame.center.x - size.width/2, y: imageview.frame.center.y - size.height/2)
         drawingView.frame = CGRect(origin: origin, size: size)
         view.addSubview(drawingView)
 
@@ -125,6 +125,15 @@ class ViewController: UIViewController {
         drawingView.updateToolState(currentToolState)
     }
 
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let size = caculateImageSize()
+        let origin = CGPoint(x: imageview.frame.center.x - size.width/2, y: imageview.frame.center.y - size.height/2)
+        self.drawingView?.frame = CGRect(origin: origin, size: size)
+    }
+
+
     func updateSliderValue() {
         if let size = currentToolState.size {
             slider.value = Float(size * 100)
@@ -139,7 +148,7 @@ class ViewController: UIViewController {
     }
 
     private func caculateImageSize() -> CGSize {
-        let screenWidth = UIScreen.main.bounds.width
+        let screenWidth = UIScreen.main.bounds.width - 40
         let screenHeight = UIScreen.main.bounds.height - 300
         var width = screenWidth
         var height = screenHeight
